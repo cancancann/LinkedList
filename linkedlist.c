@@ -115,6 +115,23 @@ void aradanSil(int x)
     onceki->next = sonraki;
 }
 
+
+void tersCevir()
+{
+    struct node* temp;
+    struct node* prev = NULL;
+
+    q = start;
+    while(q!=NULL)
+    {
+        temp = q->next;
+        q->next = prev;
+        prev = q;
+        q = temp;
+    }
+    start = prev;
+}
+
 int main()
 {
     int secim, sona, basa, x, y;
@@ -126,6 +143,7 @@ int main()
         printf("\n4- Sondan  eleman sil");
         printf("\n5- Bastan  eleman sil");
         printf("\n6- Aradan  eleman sil");
+        printf("\n7- reverse islemi..");
 
         printf("\n Yapmak istediqiniz islemi secin\n");
         scanf("%d",&secim);
@@ -164,6 +182,10 @@ int main()
             printf("\nsilinmesini istediginiz sayiyi girin...");
             scanf("%d",&secim);
             aradanSil(secim);
+            yazdir();
+            break;
+        case 7:
+            tersCevir();
             yazdir();
             break;
 
